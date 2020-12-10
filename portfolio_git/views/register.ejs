@@ -1,0 +1,60 @@
+<%- include ("./partials/header") %>
+<nav class="navbar navbar-dark" >
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="/" >WELCOME TO CREATE YOUR PORTFOLIO</a>
+		</div>
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<% if(!currentUser){ %>
+				<li><a href="/login">LogIn</a></li>
+					<li><a href="/register">SignUp</a></li>
+			<% } 	else { %>
+				<li><a href="#">Signed In as <%=currentUser.username%></a></li>
+					<li><a href="/logout">LogOut</a></li>
+				<% } %>
+			</ul>
+		</div>
+	
+	
+	</div>
+</nav>
+		<% if(error && error.length>0){%>
+		<div class="container">
+			<div class="alert alert-danger" role="alert">
+			<%=error%>
+		</div>
+			<%} %>
+			<% if(success && success.length>0){%>
+			<div class="container">
+			<div class="alert alert-success" role="alert">
+			<%=success%>
+		</div>
+	<%} %>
+		</div>
+		
+<h1 style="text-align:center">
+	Sign-up
+</h1>
+<div style="width: 30% ;margin: 25px auto;">
+<form action="/register" method="POST">
+	<div class="form-group">
+		<input class="form-control" type="text" name="username" placeholder="username">
+	</div>
+	<div class="form-group">
+		<input class="form-control" type="password" name="password" placeholder="password">
+	</div>
+	<div class="form-group">
+		<input class="form-control" type="text" name="secretkey" placeholder="secretkey">
+	</div>
+	<div class="form-group" >
+		<button class="btn btn-lg btn-default btn-block btn-primary" type="submit">
+		Submit
+	</button>
+	</div>
+	
+	
+	
+</form>
+</div>
+<%- include ("./partials/footer") %>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Portfolio</title>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="/stylesheets/main.css">
+	<style>
+body {background-image: url(/../img4.jpg);}
+	</style>
+	</head>
+	<body>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="thumbnail">
+				
+<img class="img-responsive" src="<%=achievement.image%>">
+				<div class="caption-full">
+					<h4 class="pull-right">
+						<%=achievement.created%>
+					</h4>
+					<h4>
+					<a><%=achievement.title %></a>
+					</h4>
+					<P>
+						<%=achievement.boby%>
+					</P>
+					<p>
+						<em>Submitted by:<%=achievement.author.username%></em>
+					</p>
+					<div class="row">
+					<% if(currentUser){%>
+						  <a class="btn btn-warning" href="/achievement/<%=achievement._id%>/editachievement">Edit Achievement</a>
+					<form id="deleteform" action="/showachievement/<%=achievement._id%>?_method=DELETE" method="POST">
+						<button class="btn btn-danger">
+							DELETE
+						</button>
+					</form>	<%  }  %>
+					
+					</div>
+					
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	</body>
+
+</html>

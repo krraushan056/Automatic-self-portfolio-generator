@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Portfolio</title>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="/stylesheets/main.css">
+	<style>
+body {background-image: url(/../img7.jpg)}
+	</style>
+	</head>
+	<body>
+<div class="container">
+	<div class="row">
+	
+		<div class="col-md-12">
+			<div class="thumbnail">
+				
+<img class="img-responsive" src="<%=skill.image%>">
+				<div class="caption-full">
+					<h4 class="pull-right">
+						<%=skill.created%>
+					</h4>
+					<h4>
+					<a><%=skill.title %></a>
+					</h4>
+					<P>
+						<%=skill.boby%>
+					</P>
+					<p>
+						<em>Submitted by:<%=skill.author.username%></em>
+					</p>
+					<div class="row">
+					
+					<% if(currentUser){%>
+						  <a class="btn btn-warning" href="/skill/<%=skill._id%>/editskill">EDIT CAMPGROUND</a>
+					<form id="deleteform" action="/showskill/<%=skill._id%>?_method=DELETE" method="POST">
+						<button class="btn btn-danger">
+							DELETE
+						</button>
+					</form>
+					
+						<%  }  %>
+							
+					
+						</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+	</body></html>

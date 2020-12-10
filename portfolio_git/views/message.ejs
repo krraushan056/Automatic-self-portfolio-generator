@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Portfolio Messages</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+       
+    </head>
+    <body>
+		
+	<% message.forEach(function(mess){%>	
+<section>
+
+	
+<div class="alert alert-success" role="alert">
+  <h4 class="alert-heading"><%=mess.subject%></h4>
+  <p><%=mess.message%></p>
+  <hr>
+  <p class="mb-0">submitted by:<%=mess.name%> </p>
+	<% if(currentUser){%>
+	<div class="row">
+		<a href="mailto:<%=mess.email%>" class="btn btn-warning" >Send Reply</a>
+	
+	<form id="deleteform" action="/message/<%=mess._id%>?_method=DELETE" method="POST" >
+						<button class="btn btn-danger">
+							DELETE
+						</button>
+					</form>	
+
+	</div>
+	<%}%>
+			
+</div>
+
+	</section>
+		<%})%>
+	</body>
+</html>

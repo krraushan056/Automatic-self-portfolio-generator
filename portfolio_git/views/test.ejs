@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<link rel="shortcut icon" href="final.jpg">  	 
+    <title><%=owner[0].firstname%></title>
+ <meta charset="utf-8" />
+    <meta
+      name="description"
+      content=""
+    />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="keywords" />
+    <meta content="" name="description" />
+    <meta name="author" content="<%=owner[0].firstname%>" />
+    <meta name="theme-color" content="#000000" />
+
+    <!-- Favicons -->
+    <link href="img/final.png" rel="icon" />
+   <link href="img/final.png" rel="icon" />
+
+    <!-- Bootstrap CSS File -->
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Libraries CSS Files -->
+    <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="lib/animate/animate.min.css" rel="stylesheet" />
+    <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet" />
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+
+    <!-- Main Stylesheet File -->
+    <link href="css/style.css" rel="stylesheet" />
+
+    <!-- =======================================================
+    Theme Name: DevFolio
+    Theme URL: https://bootstrapmade.com/devfolio-bootstrap-portfolio-html-template/
+    Author: BootstrapMade.com
+    License: https://bootstrapmade.com/license/
+  ======================================================= -->
+  </head>
+
+  <body id="page-top">
+    <!--/ Nav Star /-->
+    <nav
+      class="navbar navbar-b navbar-trans navbar-expand-md fixed-top"
+      id="mainNav"
+    >
+      <div class="container">
+        <a class="navbar-brand js-scroll" href="#page-top"><%=owner[0].firstname%></a>
+        <button
+          class="navbar-toggler collapsed"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarDefault"
+          aria-controls="navbarDefault"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div
+          class="navbar-collapse collapse justify-content-end"
+          id="navbarDefault"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link js-scroll active" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll" href="#skill">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll" href="#education">Education</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll" href="#projects">Practicing-Employee</a>
+           
+			  <li class="nav-item">
+              <a class="nav-link js-scroll" href="#achievements">Achievements</a>
+            </li>
+			   <li class="nav-item">
+              <a class="nav-link " href="/login">Login</a>
+            </li>
+            <!--
+              <li class="nav-item">
+              <a class="nav-link js-scroll" href="#blog">Blog</a>
+            </li> -->
+            <li class="nav-item">
+              <a class="nav-link js-scroll" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!--/ Nav End /-->
+
+    <!--/ Intro Skew Star /-->
+    <div
+      id="home"
+      class="intro route bg-image"
+      style="background-image: url(<%=owner[0].image%>)"
+    >
+      <div class="overlay-itro"></div>
+      <div class="intro-content display-table">
+        <div class="table-cell">
+          <div class="container">
+            <!--<p class="display-6 color-d">Hello, world!</p>-->
+            <h1 class="intro-title mb-4"><%=owner[0].firstname%> <%=owner[0].lastname%></h1>
+            <p class="intro-subtitle">
+              <span class="text-slider-items"
+                ><%=owner[0].tagline%></span
+              ><strong class="text-slider"></strong>
+            </p>
+            <!-- <p class="pt-3"><a class="btn btn-primary btn js-scroll px-4" href="#about" role="button">Learn More</a></p> -->
+			  
+            <ul class="list-unstyled list-social list-inline">
+              <li class="list-inline-item">
+                <a href="<%=contact[0].facebook%>"
+                  ><i class="ion-social-facebook"></i
+                ></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="<%=contact[0].linkden%>"
+                  ><i class="ion-social-linkedin"></i
+                ></a>
+              </li>
+            
+				 <li class="list-inline-item">
+                <a href="<%=contact[0].github%>"
+                  ><i class="ion-social-twitter"></i
+                ></a>
+              </li>
+            </ul>
+			  <% owner.forEach(function(owner){%>
+			<% if(currentUser){%>
+					
+						  <a class="btn btn-warning" href="/owner/<%=owner._id%>/editowner">Update owner Detail</a>
+							<%}%>
+			 <%})%>
+			   <% contact.forEach(function(contact){%>
+			  <% if(currentUser){%>
+					
+						  <a class="btn btn-warning" href="/contact/<%=contact._id%>/editcontact">Update Contact Detail</a>
+							<%}%>
+			   <%})%>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/ Intro Skew End /-->
+
+
+    <!--/ Section Services Star /-->
+    <section id="skill" class="portfolio-mf sect-pt4 route"  style="background-image: url(use.jpg)">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="title-box text-center">
+              <h3 class="title-a">
+              Services and Supports
+              </h3>
+              <p class="subtitle-a">
+          	
+              </p>
+              <div class="line-mf"></div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+			<% skill.forEach(function(skill){%>
+          <div class="col-md-4">
+            <div class="work-box">
+              <a href="" data-lightbox="gallery-mf">
+                <div class="work-img">
+                  <img src="<%=skill.image%>" alt="" class="img-fluid" />
+                </div>
+                <div class="work-content">
+                  <div class="row">
+                    <div class="col-sm-8">
+                      <h2 class="w-title">
+                       <%=skill.title%>
+                      </h2>
+                      <div class="w-more">
+                        <span class="w-ctegory"><%=skill.body%></span> 
+                        <span class="w-date"></span>
+                      </div>
+                    </div>
+					   <% if(currentUser){%>
+                    <div class="col-sm-4">
+                   <p>
+			<a href="/showskill/<%=skill._id%>" class="btn btn-outline-info">More info</a>
+		      </p>
+                     
+                    </div>
+					  <%}%>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+			<%})%>
+		  </div>
+	
+		</div>
+		<% if(currentUser){%>
+					
+						  <a class="btn btn-warning" href="/skill">Add More Services and Support </a>
+							<%}%>
+    </section>
+	  
+
+    <!--/ Section Portfolio Star /-->
+    <section id="education" class="portfolio-mf sect-pt4 route"  style="background-image: url(img6.jpg)">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="title-box text-center">
+              <h3 class="title-a">
+           Education
+              </h3>
+              <p class="subtitle-a">
+         
+              </p>
+              <div class="line-mf"></div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+			<% education.forEach(function(education){%>
+          <div class="col-md-6">
+            <div class="work-box">
+              <a href="#" data-lightbox="gallery-mf">
+                <div class="work-img">
+                  <img src="<%=education.image%>" alt="" class="img-fluid" />
+                </div>
+                <div class="work-content">
+                  <div class="row">
+                    <div class="col-sm-8">
+                      <h2 class="w-title">
+                       <%=education.title%>
+                      </h2>
+                      <div class="w-more">
+                        <span class="w-ctegory"><%=education.body%></span> 
+                        <span class="w-date"></span>
+                      </div>
+                    </div>
+					   <% if(currentUser){%>
+                    <div class="col-sm-4">
+					<p>
+			<a href="/showeducation/<%=education._id%>" class="btn btn-outline-info">More info</a>
+		</p>
+					  </div>
+					  <%}%>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+			<%})%>
+		  </div>
+	
+		</div>
+		<% if(currentUser){%>
+					
+						  <a class="btn btn-warning" href="/education">Add more Education</a>
+							<%}%>
+    </section>
+	  
+	  
+	  
+	  
+    <!--/ Section Portfolio End /-->
+
+    <!--/ Section Testimonials Star /-->
+  
+ <section id="achievements" class="portfolio-mf sect-pt4 route"  style="background-image: url(img4.jpg)">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="title-box text-center">
+              <h3 class="title-a">
+            My Achievements
+              </h3>
+              <p class="subtitle-a">
+           
+              </p>
+              <div class="line-mf"></div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+			<% achievement.forEach(function(achievement){%>
+          <div class="col-md-4">
+            <div class="work-box">
+              <a href="#" data-lightbox="gallery-mf">
+                <div class="work-img">
+                  <img src=" <%=achievement.image%>" alt="" class="img-fluid" />
+                </div>
+                <div class="work-content">
+                  <div class="row">
+                    <div class="col-sm-8">
+                      <h2 class="w-title">
+                       <%=achievement.title%>
+                      </h2>
+                      <div class="w-more">
+                        <span class="w-ctegory"><%=achievement.body%></span> 
+                        <span class="w-date"></span>
+                      </div>
+                    </div>
+						   <% if(currentUser){%>
+                    <div class="col-sm-4">
+                    <p>
+			<a href="/showachievement/=achievement._id%>" class="btn btn-outline-info">More info</a>
+		</p>
+                    </div>
+						  <%}%>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+			<%})%>
+		  </div>
+		
+		</div>
+	 <%if(currentUser){%>
+					
+						  <a class="btn btn-warning" href="/form2">Add More Achievements</a>
+							<%}%>
+    </section>
+    <!--==========================
+      Clients Section
+    ============================-->
+		  <!--
+    <section id="project" class="section-bg">
+      <div class="container">
+        <div class="section-header">
+          <h3>Practicing Employee</h3>
+          <p>
+           
+          </p>
+        </div>
+
+        <div class="row no-gutters clients-wrap clearfix wow fadeInUp">
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="client-logo">
+              <img src="img/clients/client-1.png" class="img-fluid" alt="" />
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="client-logo">
+              <img src="img/clients/client-2.png" class="img-fluid" alt="" />
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="client-logo">
+              <img src="img/clients/client-3.png" class="img-fluid" alt="" />
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="client-logo">
+              <img src="img/clients/client-4.png" class="img-fluid" alt="" />
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="client-logo">
+              <img src="img/clients/client-5.png" class="img-fluid" alt="" />
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="client-logo">
+              <img src="img/clients/client-6.png" class="img-fluid" alt="" />
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="client-logo">
+              <img src="img/clients/client-7.png" class="img-fluid" alt="" />
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="client-logo">
+              <img src="img/clients/client-8.png" class="img-fluid" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+-->
+    <!--/ Section Blog Star /-->
+     <section id="projects" class="blog-mf sect-pt4 route"  style="background-image: url(/../img3.jpg)">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="title-box text-center">
+            <h3 class="title-a">
+         		Practicing Employees
+            </h3>
+            <p class="subtitle-a">
+       
+            </p>
+            <div class="line-mf"></div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+		    <% project.forEach(function(project){%>
+        <div class="col-md-4">
+          <div class="card card-blog">
+            <div class="card-img">
+              <a href="blog-single.html"><img src="<%=project.image%>" alt="" class="img-fluid"></a>
+            </div>
+            <div class="card-body">
+              <div class="card-category-box">
+                <div class="card-category">
+                  <h6 class="category"><%=project.title%></h6>
+                </div>
+              </div>
+              <h3 class="card-title"><a href="#">More</a></h3>
+              <p class="card-description">
+               <%=project.body%>
+              </p>
+            </div>
+            <div class="card-footer">
+              <div class="post-author">
+				   <% if(currentUser){%>
+                 <p>
+			<a href="/showproject/<%=project._id%>" class="btn btn-outline-info">more info</a>
+		</p>
+	<%}%>
+                  <span class="author"></span>
+              </div>
+              <div class="post-date">
+              </div>
+            </div>
+          </div>
+        </div>
+		  <%})%>
+		</div>
+		
+    </div>
+		 <% if(currentUser){%>
+						  <a class="btn btn-warning" href="/form3">Add more Practicing employee</a>
+						 <%}%>
+  </section> 
+	  
+	
+    <!--/ Section Blog End /-->
+
+    <!--/ Section Contact-Footer Star /-->
+    <section
+      class="paralax-mf footer-paralax bg-image sect-mt4 route"
+       style="background-image: url(img2.jpg)"
+    >
+      <div class="overlay-mf"></div>
+      <div class="container">
+        <div class="row">
+    <marquee style=" font-size: 30px; font-weight: 800;  color: #8ebf42;
+      font-family: sans-serif;">Please click on submit only once your responce  will  be submitted</marquee>
+          <div class="col-sm-12">
+            <div class="contact-mf">
+              <div id="contact" class="box-shadow-full">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="title-box-2">
+                      <h5 class="title-left">
+                        Contact Me!
+                      </h5>
+                    </div>
+                    <div>
+                      <form
+                        action="/message"
+                        method="POST"
+                        class="contactForm"
+                      >
+                        
+                        <div class="row">
+                          <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              <input
+                                type="text"
+                                name="name"
+                                class="form-control"
+                                placeholder="your name"
+                                data-rule="minlen:4"
+                                data-msg="Please enter at least 4 chars"
+                              />
+                              <div class="validation"></div>
+                            </div>
+                          </div>
+                          <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              <input
+                                type="email"
+                                class="form-control"
+                                name="email"
+                                placeholder="youe email"
+                                data-rule="email"
+                                data-msg="Please enter a valid email"
+                              />
+                              <div class="validation"></div>
+                            </div>
+                          </div>
+                          <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              <input
+                                type="text"
+                                class="form-control"
+                                name="subject"
+                                placeholder="Subject"
+                                data-rule="minlen:4"
+                                data-msg="subject"
+                              />
+                              <div class="validation"></div>
+                            </div>
+                          </div>
+                          <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              <textarea
+                                class="form-control"
+                                name="message"
+                                rows="5"
+                                data-rule="required"
+                                data-msg="
+                               message"
+                                placeholder="Message"
+                              ></textarea>
+                              <div class="validation"></div>
+                            </div>
+                          </div>
+                          <div class="col-md-12">
+                            <button
+                              type="submit"
+                              class="button button-a button-big button-rouded"
+									
+                            >
+                              Submit
+							
+                            </button>
+							   <a
+                              class="button button-a button-big button-rouded"
+									href="/message"
+                            >
+                              See all messages
+                            </a>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="title-box-2 pt-4 pt-md-0">
+                      <h5 class="title-left">
+                      Connect me
+                      </h5>
+                    </div>
+                    <div class="more-info">
+                      <p class="lead">
+                        You can contact me or email me anytime
+                      </p>
+                      <ul class="list-ico">
+                        <li>
+                          <span class="ion-ios-location"></span> <%=owner[0].address%>
+                         
+                        </li>
+                        <li>
+                          <span class="ion-ios-telephone"></span> <%=contact[0].phone%>
+                       
+                        </li>
+                        <li>
+						
+                          <span class="ion-email"></span>
+                        <%=contact[0].email%>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="socials">
+                      <ul>
+                        <li>
+                          <a href=" <%=contact[0].facebook%>"
+                            ><span class="ico-circle"
+                              ><i class="ion-social-facebook"></i></span
+                          ></a>
+                        </li>
+                        <li>
+                          <a href=" <%=contact[0].linkden%>"
+                            ><span class="ico-circle"
+                              ><i class="ion-social-linkedin"></i></span
+                          ></a>
+                        </li>
+                        <li>
+                          <a href=" <%=contact[0].github%>"
+                            ><span class="ico-circle"
+                              ><i class="ion-social-github"></i></span
+                          ></a>
+                        </li>
+                      </ul>
+					
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="copyright-box">
+                <p class="copyright" style="color:transparent">
+                  &copy; Copyright <strong>Raushan</strong>. All Rights
+                  Reserved
+                </p>
+                <div class="credits" style="color:transparent">
+                  <!--
+                  All the links in the footer should remain intact.
+                  You can delete the links only if you purchased the pro version.
+                  Licensing information: https://bootstrapmade.com/license/
+                  Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=DevFolio
+                -->
+                  Designed by
+                  <a href="https://bootstrapmade.com/" style="color:transparent"
+                    >Bootstrap</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </section>
+	     <div
+      class="testimonials paralax-mf bg-image"
+       style="background-image: url(img1.jpg)"
+    >
+      <div class="overlay-mf"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div id="testimonial-mf" class="owl-carousel owl-theme">
+              <div class="testimonial-box">
+                <div class="author-test">
+                  <img
+                    src="#"
+                    alt=""
+                    class="rounded-circle b-shadow-a"
+                  />
+                  <span class="author"><%=owner[0].firstname%></span>
+                </div>
+                <div class="content-test">
+                  <p class="description lead">
+                    <%=owner[0].discriptionheading%>
+                  </p>
+                  <span class="comit"><i class="fa fa-quote-right"></i></span>
+                </div>
+              </div>
+              <div class="testimonial-box">
+                <div class="author-test">
+                  <img
+                    src=" <%=contact[0].image%>"
+                    alt=""
+                    class="rounded-circle b-shadow-a img-fluid " 
+                  />
+                  <span class="author"><%=owner[0].firstname%></span>
+                </div>
+                <div class="content-test">
+                  <p class="description lead">
+                    <%=owner[0].discriptionheading%>
+                  </p>
+                  <span class="comit"><i class="fa fa-quote-right"></i></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/ Section Contact-footer End /-->
+
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+    <div id="preloader"></div>
+
+    <!-- JavaScript Libraries -->
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/jquery/jquery-migrate.min.js"></script>
+    <script src="lib/popper/popper.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/counterup/jquery.waypoints.min.js"></script>
+    <script src="lib/counterup/jquery.counterup.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="lib/typed/typed.min.js"></script>
+    <!-- Contact Form JavaScript File -->
+    <script src="contactform/contactform.js"></script>
+
+    <!-- Template Main Javascript File -->
+    <script src="js/main.js"></script>
+  </body>
+</html>
